@@ -1,0 +1,154 @@
+{
+  "stages": [
+    {
+      "id": "S0",
+      "name": "建立信任",
+      "goal": "打破戒备，确认可坦诚沟通",
+      "triggers": [
+        {
+          "label": "挂断/忙音",
+          "value": "busy_hangup",
+          "problem_type": "P1",
+          "default_script": "（不说话，发短信）‘抱歉刚可能没说清楚，其实只是想确认下贵司下季度是否有XX计划，绝不骚扰。’"
+        },
+        {
+          "label": "没兴趣/不需要",
+          "value": "not_interested",
+          "problem_type": "P1",
+          "default_script": "完全理解，毕竟每天接到不少推销电话。我不是来推销的，只是看到贵司最近在招XX岗位，想简单交流下你们对XX工具的看法，30秒就行。"
+        },
+        {
+          "label": "发资料看看",
+          "value": "send_info",
+          "problem_type": "P1",
+          "default_script": "没问题，为了发给您的资料更有针对性，能不能请教一个问题：您目前最关注的是效率提升还是成本控制？"
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "发现痛点",
+      "goal": "让客户自己说出‘有问题且不舒服’",
+      "triggers": [
+        {
+          "label": "目前没问题",
+          "value": "no_problem",
+          "problem_type": "P2",
+          "default_script": "那太好了，说明现在的流程很顺。不过我很好奇，如果遇到旺季流量暴增3倍的情况，现在的人手能应付得过来吗？"
+        },
+        {
+          "label": "用竞品中",
+          "value": "using_competitor",
+          "problem_type": "P2",
+          "default_script": "XX确实是大品牌。只是最近我们很多客户从那边转过来，主要是因为他们服务响应有点慢，不知道您那边体验如何？"
+        },
+        {
+          "label": "痛点不痛",
+          "value": "pain_not_severe",
+          "problem_type": "P2",
+          "default_script": "这个确实是小问题。但如果不处理，累积一个月下来，会不会影响到核心业务的交付速度？"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "提供价值",
+      "goal": "把方案和痛点对应，展示收益",
+      "triggers": [
+        {
+          "label": "具体能干嘛",
+          "value": "what_can_do",
+          "problem_type": "P3",
+          "default_script": "针对您刚才说的招人难问题，我们能做到：1. 自动筛选简历；2. AI初面。这能帮您HR团队每周省下2天时间。"
+        },
+        {
+          "label": "太贵了(早期)",
+          "value": "expensive_early",
+          "problem_type": "P3",
+          "default_script": "价格确实不低，因为我们专门解决高难度场景。如果在意成本，也可以看看市面上免费的工具，但效果可能没法保证，您怎么看？"
+        },
+        {
+          "label": "有没有案例",
+          "value": "case_study",
+          "problem_type": "P3",
+          "default_script": "有的，像和您同行业的XX公司，去年也遇到这个问题，用我们方案后，效率提升了40%。我发给您看看？"
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "建立张力",
+      "goal": "打破现状偏差，让客户看到风险",
+      "triggers": [
+        {
+          "label": "现状挺好",
+          "value": "status_quo",
+          "problem_type": "P4",
+          "default_script": "很高兴现在运转平稳，我好奇的是，如果半年后法规调整，现有流程有备选方案吗？"
+        },
+        {
+          "label": "再考虑一下",
+          "value": "delay",
+          "problem_type": "P4",
+          "default_script": "完全理解，一般说要再考虑，通常要么是觉得价值还不够清楚，要么是心里还有风险没想明白，您更偏向哪一种？"
+        },
+        {
+          "label": "预算不够",
+          "value": "budget_issue",
+          "problem_type": "P4",
+          "default_script": "预算确实是关键。不过如果现在不解决这个问题，咱们每个月因此流失的客户价值，是不是已经超过这笔投入了？"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "处理异议",
+      "goal": "化解犹豫，谈判价格/风险",
+      "triggers": [
+        {
+          "label": "价格太高",
+          "value": "price_high",
+          "problem_type": "P5",
+          "default_script": "如果是觉得贵，是因为和之前的方案比，还是觉得回本周期太长？"
+        },
+        {
+          "label": "竞品更便宜",
+          "value": "competitor_cheaper",
+          "problem_type": "P5",
+          "default_script": "确实，市面上便宜20%的也有。但他们通常不包含XX服务，万一出问题可能要停摆两天，这个风险咱们能承担吗？"
+        },
+        {
+          "label": "很难落地",
+          "value": "hard_to_implement",
+          "problem_type": "P5",
+          "default_script": "很多客户一开始也这么担心。所以我们提供了‘保姆式’上线服务，专门有人驻场带你们跑通第一周，这样会放心点吗？"
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "促成决策",
+      "goal": "锁定行动，默认成交",
+      "triggers": [
+        {
+          "label": "我想想/走流程",
+          "value": "process_check",
+          "problem_type": "P6",
+          "default_script": "没问题，大公司流程都严谨。那咱们先预设下周三启动，倒推回来，这周五前需要准备好哪些材料？"
+        },
+        {
+          "label": "需要汇报",
+          "value": "need_approval",
+          "problem_type": "P6",
+          "default_script": "明白，老板通常最关心ROI。需不需要我帮您整理一份简报，专门列出投入产出比，方便您汇报？"
+        },
+        {
+          "label": "沉默不语",
+          "value": "silence_close",
+          "problem_type": "P6",
+          "default_script": "（如果不说话）看您在思考，是不是对上线时间还有顾虑？如果没问题，咱们就按这个排期推进？"
+        }
+      ]
+    }
+  ]
+}
