@@ -72,7 +72,9 @@ export async function POST(request: Request) {
         console.log("Review Result:", result);
         
         // The workflow should return a JSON string in 'outputs'
-        const rawOutput = result.data.outputs?.result || result.data.outputs?.text || "{}";
+        // Using 'as any' to bypass strict typing for the dynamic result
+        const data = (result as any).data;
+        const rawOutput = data?.outputs?.result || data?.outputs?.text || "{}";
         const parsedData = DifyClient.parseLLMResponse(rawOutput);
         
         return NextResponse.json(parsedData);

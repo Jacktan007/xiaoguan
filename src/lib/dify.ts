@@ -68,7 +68,7 @@ export class DifyClient {
     }
   }
 
-  async runWorkflow(inputs: Record<string, any>, user: string, files?: { type: string; url: string }[]) {
+  async runWorkflow(inputs: Record<string, any>, user: string, files?: { type: string; url: string }[]): Promise<any> {
     return this.request('/workflows/run', {
       inputs,
       response_mode: 'blocking',
@@ -77,7 +77,7 @@ export class DifyClient {
     });
   }
   
-  async runChatMessage(query: string, inputs: Record<string, any>, user: string, conversationId?: string) {
+  async runChatMessage(query: string, inputs: Record<string, any>, user: string, conversationId?: string): Promise<any> {
     return this.request('/chat-messages', {
         query,
         inputs,

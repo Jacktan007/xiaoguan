@@ -40,10 +40,10 @@ export async function POST(request: Request) {
         inputs,
         userId || 'user-default',
         conversationId
-    );
+    ) as any;
     
     // Extract and Parse Answer
-    const rawAnswer = difyRes.answer;
+    const rawAnswer = difyRes.answer || '';
     console.log("Dify Raw Answer:", rawAnswer);
 
     let parsedData: TacticalCardData;
