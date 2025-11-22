@@ -30,7 +30,7 @@ export default function MistakeCard({ mistake }: MistakeCardProps) {
             <span>你说：</span>
           </div>
           <div className="p-3 bg-red-50 rounded-lg text-gray-700 text-sm leading-relaxed border border-red-100">
-            "{mistake.original}"
+            &ldquo;{mistake.original}&rdquo;
           </div>
           <p className="text-xs text-red-400 mt-2">
             <span className="font-bold">问题诊断:</span> {mistake.reason}
@@ -49,7 +49,7 @@ export default function MistakeCard({ mistake }: MistakeCardProps) {
             <span>冠军建议：</span>
           </div>
           <div className="p-3 bg-green-50 rounded-lg text-gray-800 text-sm leading-relaxed border border-green-100 font-medium shadow-sm">
-            "{mistake.better_script}"
+            &ldquo;{mistake.better_script}&rdquo;
           </div>
         </div>
       </div>
